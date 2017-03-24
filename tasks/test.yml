@@ -1,0 +1,28 @@
+---
+
+- name: ship hello.go
+  copy:
+    src: "hello.go"
+    dest: "{{ golang_test_directory }}/hello.go"
+  changed_when: False
+
+- name: perform "go run hello.go" and capture output
+  shell: |
+    "{{ golang_unarchive_dest }}/go/bin/go" run "{{ golang_test_directory }}/hello.go"
+  args:
+    chdir: "{{ golang_test_directory }}"
+    creates: "{{ golang_test_directory }}/hello"
+  register: golang_test_run
+  changed_when: False
+
+- name: output 
+  debug:
+    msg: "{{ golang_test_run.stdout }}"
+
+- name: perform cleanup
+  file:
+    state: absent
+    path: "{{ item }}"
+  with_items:
+    - "{{ golang_test_directory }}/hello.go"
+  changed_when: False

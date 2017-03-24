@@ -1,0 +1,17 @@
+---
+
+- name: create installation directory
+  file:
+    state: directory
+    path: "{{ golang_unarchive_dest }}"
+
+- name: download tarball
+  get_url:
+    url: "{{ golang_upstream_url }}/{{ golang_tarball_name }}"
+    dest: "{{ golang_tarball_dest }}/{{ golang_tarball_name }}"
+
+- name: unpack tarball
+  unarchive:
+    src: "{{ golang_tarball_dest }}/{{ golang_tarball_name }}"
+    dest: "{{ golang_unarchive_dest }}"
+    remote_src: True
