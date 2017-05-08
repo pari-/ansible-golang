@@ -4,6 +4,7 @@
 # prerequisites
 #
 golang_supported_distro_list:
+  - "trusty"
   - "jessie"
 
 #

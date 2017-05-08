@@ -1,5 +1,7 @@
 # golang
 
+[![Build Status](https://travis-ci.org/pari-/ansible-golang.svg?branch=master)](https://travis-ci.org/pari-/ansible-golang)
+
 An Ansible role which installs and configures golang (The Go Programming Language)
 
 <!-- toc -->
@@ -17,7 +19,12 @@ An Ansible role which installs and configures golang (The Go Programming Languag
 
 Currently this role is developed for and tested on Debian GNU/Linux (release: jessie). It is assumed to work on other Debian distributions as well.
 
-Ansible version in use for development: 2.2.1
+Ansible version compatibility:
+
+- __2.3.0__ (current version in use for development of this role)
+- 2.2.2
+- 2.1.5
+- 2.0.2
 
 ## Example
 
@@ -36,7 +43,7 @@ variable | default | notes
 -------- | ------- | -----
 `environment_file` | `/etc/profile.d/golang.sh` | `Absolute path where $GOROOT/$PATH exports are stored`
 `go_version` | `1.8` | `The version of the Go Programming Language that is going to be installed`
-`supported_distro_list` | `['jessie']` | `A list of distribution releases this role supports`
+`supported_distro_list` | `['jessie', 'trusty']` | `A list of distribution releases this role supports`
 `tarball_dest` | `/tmp` | `Destination where golang's tarball is stored`
 `tarball_name` | `go{{ golang_go_version }}.linux-amd64.tar.gz` | `Naming schema of golang's tarball`
 `test_directory` | `/tmp` | `The directory where tests will be temporary stored and run in (auto cleanup)`
