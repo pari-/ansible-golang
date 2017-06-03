@@ -15,7 +15,7 @@
   register: golang_test_run
   changed_when: False
 
-- name: output 
+- name: output golang's test run
   debug:
     msg: "{{ golang_test_run.stdout }}"
 

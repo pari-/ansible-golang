@@ -1,28 +1,11 @@
 ---
 
-#
-# prerequisites
-#
-golang_supported_distro_list:
-  - "trusty"
-  - "jessie"
-
-#
-# install
-#
+golang_environment_file: "/etc/profile.d/golang.sh"
 golang_go_version: "1.8"
-golang_unarchive_dest: "/usr/local"
-golang_upstream_url: "https://storage.googleapis.com/golang"
+golang_supported_distro_list:
+  - "jessie"
 golang_tarball_name: "go{{ golang_go_version }}.linux-amd64.tar.gz"
 golang_tarball_dest: "/tmp"
-
-
-#
-# configure
-#
-golang_environment_file: "/etc/profile.d/golang.sh"
-
-#
-# test
-#
 golang_test_directory: "/tmp"
+golang_unarchive_dest: "/usr/local"
+golang_upstream_url: "https://storage.googleapis.com/golang"
