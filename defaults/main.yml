@@ -4,6 +4,7 @@ golang_environment_file: "/etc/profile.d/golang.sh"
 golang_go_version: "1.8"
 golang_supported_distro_list:
   - "jessie"
+  - "stretch"
 golang_tarball_name: "go{{ golang_go_version }}.linux-amd64.tar.gz"
 golang_tarball_dest: "/tmp"
 golang_test_directory: "/tmp"
