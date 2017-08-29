@@ -1,7 +1,7 @@
 ---
 
 golang_environment_file: "/etc/profile.d/golang.sh"
-golang_go_version: "1.8"
+golang_go_version: "1.9"
 golang_supported_distro_list:
   - "jessie"
   - "stretch"
