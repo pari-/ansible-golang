@@ -21,25 +21,29 @@ Currently this role is developed for and tested on Debian GNU/Linux (release: st
 
 Ansible version compatibility:
 
-- __2.3.2.0__ (current version in use for development of this role)
+- __2.4.0.0__ (current version in use for development of this role)
+- 2.3.2.0
 - 2.2.3.0
 - 2.1.6.0
-- 2.0.2.0
 
 ## Example
 
 ```yaml
 ---
 
-- hosts: "{{ hosts_group | default('all') }}"
-
-  vars:
-
+- hosts: "all"
   roles:
-    - { role: "{{ role_name | default('ansible-golang') }}", tags: ['golang'] }
+    - role: "ansible-golang"
+      tags:
+        - "golang"
+  post_tasks:
+    - block:
+        - include: "tests/test_golang.yml"
+      tags:
+        - "tests"
 ```
 
-## Role Variables
+## Defaults
 
 Available variables are listed below, along with default values (see defaults/main.yml). They're generally prefixed with `golang_` (which I deliberately leave out here for better formatting).
 

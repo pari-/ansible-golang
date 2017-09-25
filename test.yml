@@ -1,8 +1,12 @@
 ---
 
-- hosts: "{{ hosts_group | default('all') }}"
-
-  vars:
-
+- hosts: "all"
   roles:
-    - { role: "{{ role_name | default('ansible-golang') }}", tags: ['golang'] }
+    - role: "ansible-golang"
+      tags:
+        - "golang"
+  post_tasks:
+    - block:
+        - include: "tests/test_golang.yml"
+      tags:
+        - "tests"

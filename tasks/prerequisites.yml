@@ -1,6 +1,7 @@
 ---
 
-- name: fail unless we run on a supported distribution
+- name: "fail unless we run on a supported distribution"
   fail:
     msg: "Unfortunately, the 'golang'-role is not supported on {{ ansible_distribution_release }}! :-("
-  when: ansible_distribution_release|lower not in golang_supported_distro_list
+  when:
+    - ansible_distribution_release|lower not in golang_supported_distro_list

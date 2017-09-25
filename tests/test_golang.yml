@@ -1,27 +1,27 @@
 ---
 
-- name: ship hello.go
+- name: "ship hello.go"
   copy:
-    src: "hello.go"
     dest: "{{ golang_test_directory }}/hello.go"
+    src: "hello.go"
   changed_when: False
 
-- name: perform "go run hello.go" and capture output
+- name: "perform 'go run hello.go' and capture output"
   shell: |
     "{{ golang_unarchive_dest }}/go/bin/go" run "{{ golang_test_directory }}/hello.go"
   args:
     chdir: "{{ golang_test_directory }}"
     creates: "{{ golang_test_directory }}/hello"
-  register: golang_test_run
   changed_when: False
+  register: "golang_test_run"
 
-- name: output golang's test run
+- name: "output golang's test run"
   debug:
     msg: "{{ golang_test_run.stdout }}"
 
-- name: perform cleanup
+- name: "perform cleanup"
   file:
-    state: absent
+    state: "absent"
     path: "{{ item }}"
   with_items:
     - "{{ golang_test_directory }}/hello.go"
