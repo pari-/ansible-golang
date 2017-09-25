@@ -8,7 +8,7 @@ An Ansible role which installs and configures golang (The Go Programming Languag
 
 - [Requirements](#requirements)
 - [Example](#example)
-- [Role Variables](#role-variables)
+- [Defaults](#defaults)
 - [Dependencies](#dependencies)
 - [License](#license)
 - [Author Information](#author-information)
