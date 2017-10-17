@@ -8,10 +8,18 @@
     regexp: '^export GOROOT='
     state: "present"
 
+- name: "perisist the GOPATH environment change"
+  lineinfile:
+    create: "yes"
+    dest: "{{ golang_environment_file }}"
+    line: "export GOPATH={{ golang_gopath }}"
+    regexp: '^export GOPATH='
+    state: "present"
+
 - name: "persist the PATH environment change"
   lineinfile:
     create: "yes"
     dest: "{{ golang_environment_file }}"
-    line: "export PATH=$PATH:$GOROOT/bin"
+    line: "export PATH=$PATH:$GOROOT/bin:$GOPATH"
     regexp: '^export PATH='
     state: "present"
