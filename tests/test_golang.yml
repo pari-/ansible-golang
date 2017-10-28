@@ -1,28 +1,32 @@
 ---
 
+- name: "create temp dir"
+  command: "mktemp -d"
+  register: "_temp_dir"
+  changed_when: False
+
 - name: "ship hello.go"
   copy:
-    dest: "{{ golang_test_directory }}/hello.go"
     src: "hello.go"
+    dest: "{{ _temp_dir['stdout'] }}/hello.go"
   changed_when: False
 
 - name: "perform 'go run hello.go' and capture output"
-  shell: |
-    "{{ golang_unarchive_dest }}/go/bin/go" run "{{ golang_test_directory }}/hello.go"
+  command: "{{ golang_unarchive_dest }}/go/bin/go run {{ _temp_dir['stdout'] }}/hello.go"
   args:
-    chdir: "{{ golang_test_directory }}"
-    creates: "{{ golang_test_directory }}/hello"
+    chdir: "{{ _temp_dir['stdout'] }}"
+    creates: "{{ _temp_dir['stdout'] }}/hello"
+  register: "_result"
   changed_when: False
-  register: "golang_test_run"
 
-- name: "output golang's test run"
-  debug:
-    msg: "{{ golang_test_run.stdout }}"
-
-- name: "perform cleanup"
+- name: "remove temp dir"
   file:
     state: "absent"
-    path: "{{ item }}"
-  with_items:
-    - "{{ golang_test_directory }}/hello.go"
+    path: "{{ _temp_dir['stdout'] }}"
   changed_when: False
+
+- name: "fail when running hello does not yield expected output"
+  fail:
+    msg: "'{{ _result.stdout }}' != 'Hello, World.'"
+  when:
+    - "_result.stdout != 'Hello, World.'"
