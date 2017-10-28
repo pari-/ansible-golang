@@ -2,8 +2,8 @@
 
 galaxy_info:
   author: "Patrick Ringl"
-  description: "An Ansible role which installs and configures golang (The Go Programming Language)"
   dependencies: []
+  description: "An Ansible role which installs and configures golang (The Go Programming Language)"
   galaxy_tags:
     - "golang"
     - "Go"
