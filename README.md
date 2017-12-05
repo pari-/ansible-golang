@@ -21,7 +21,7 @@ Currently this role is developed for and tested on Debian GNU/Linux (release: st
 
 Ansible version compatibility:
 
-- __2.4.1.0__ (current version in use for development of this role)
+- __2.4.2.0__ (current version in use for development of this role)
 - 2.3.2.0
 - 2.2.3.0
 - 2.1.6.0
@@ -50,7 +50,7 @@ Available variables are listed below, along with default values (see defaults/ma
 variable | default | notes
 -------- | ------- | -----
 `environment_file` | `/etc/profile.d/golang.sh` | `Absolute path where $GOROOT/$PATH exports are stored`
-`go_version` | `1.9` | `The version of the Go Programming Language that is going to be installed`
+`go_version` | `1.9.2` | `The version of the Go Programming Language that is going to be installed`
 `gopath` | `/opt/go` | `The $GOPATH lists places to look for Go code.`
 `supported_distro_list` | `['jessie', 'stretch']` | `A list of distribution releases this role supports`
 `tarball_dest` | `/tmp` | `Destination where golang's tarball is stored`
