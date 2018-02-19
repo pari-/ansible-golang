@@ -50,7 +50,7 @@ Available variables are listed below, along with default values (see defaults/ma
 variable | default | notes
 -------- | ------- | -----
 `environment_file` | `/etc/profile.d/golang.sh` | `Absolute path where $GOROOT/$PATH exports are stored`
-`go_version` | `1.9.3` | `The version of the Go Programming Language that is going to be installed`
+`go_version` | `1.10` | `The version of the Go Programming Language that is going to be installed`
 `gopath` | `/opt/go` | `The $GOPATH lists places to look for Go code.`
 `supported_distro_list` | `['jessie', 'stretch']` | `A list of distribution releases this role supports`
 `tarball_dest` | `/tmp` | `Destination where golang's tarball is stored`
