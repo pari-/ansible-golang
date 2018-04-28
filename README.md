@@ -19,12 +19,7 @@ An Ansible role which installs and configures golang (The Go Programming Languag
 
 Currently this role is developed for and tested on Debian GNU/Linux (release: stretch).
 
-Ansible version compatibility:
-
-- __2.5.0.0__ (current version in use for development of this role)
-- 2.4.3.0
-- 2.3.3.0
-- 2.2.3.0
+Ansible version compatibility: [Dockerfile](https://github.com/pari-/docker-debian-ansible/blob/master/debian/stretch/Dockerfile)
 
 ## Example
 
