@@ -20,6 +20,6 @@
   lineinfile:
     create: "yes"
     dest: "{{ golang_environment_file }}"
-    line: "export PATH=$PATH:$GOROOT/bin:$GOPATH"
+    line: "export PATH=$PATH:$GOROOT/bin:$GOPATH/bin"
     regexp: '^export PATH='
     state: "present"
