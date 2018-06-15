@@ -1,7 +1,7 @@
 ---
 
 golang_environment_file: "/etc/profile.d/golang.sh"
-golang_go_version: "1.10.2"
+golang_go_version: "1.10.3"
 golang_gopath: "/opt/go"
 golang_supported_distro_list:
   - "stretch"
