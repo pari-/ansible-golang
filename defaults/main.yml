@@ -1,10 +1,8 @@
 ---
 
 golang_environment_file: "/etc/profile.d/golang.sh"
-golang_go_version: "1.10.3"
+golang_go_version: "1.12.7"
 golang_gopath: "/opt/go"
-golang_supported_distro_list:
-  - "stretch"
 golang_tarball_name: "go{{ golang_go_version }}.linux-amd64.tar.gz"
 golang_tarball_dest: "/tmp"
 golang_test_directory: "/tmp"

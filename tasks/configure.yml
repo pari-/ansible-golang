@@ -1,6 +1,6 @@
 ---
 
-- name: "persist the GOROOT environment change"
+- name: "Persist the GOROOT environment change"
   lineinfile:
     create: "yes"
     dest: "{{ golang_environment_file }}"
@@ -8,7 +8,7 @@
     regexp: '^export GOROOT='
     state: "present"
 
-- name: "perisist the GOPATH environment change"
+- name: "Perisist the GOPATH environment change"
   lineinfile:
     create: "yes"
     dest: "{{ golang_environment_file }}"
@@ -16,7 +16,7 @@
     regexp: '^export GOPATH='
     state: "present"
 
-- name: "persist the PATH environment change"
+- name: "Persist the PATH environment change"
   lineinfile:
     create: "yes"
     dest: "{{ golang_environment_file }}"

@@ -1,17 +1,17 @@
 ---
 
-- name: "create temp dir"
+- name: "Create temp dir"
   command: "mktemp -d"
   register: "_temp_dir"
   changed_when: False
 
-- name: "ship hello.go"
+- name: "Ship hello.go"
   copy:
     src: "hello.go"
     dest: "{{ _temp_dir['stdout'] }}/hello.go"
   changed_when: False
 
-- name: "perform 'go run hello.go' and capture output"
+- name: "Perform 'go run hello.go' and capture output"
   command: "{{ golang_unarchive_dest }}/go/bin/go run {{ _temp_dir['stdout'] }}/hello.go"
   args:
     chdir: "{{ _temp_dir['stdout'] }}"
@@ -19,13 +19,13 @@
   register: "_result"
   changed_when: False
 
-- name: "remove temp dir"
+- name: "Remove temp dir"
   file:
     state: "absent"
     path: "{{ _temp_dir['stdout'] }}"
   changed_when: False
 
-- name: "fail when running hello does not yield expected output"
+- name: "Fail when running hello does not yield expected output"
   fail:
     msg: "'{{ _result.stdout }}' != 'Hello, World.'"
   when:

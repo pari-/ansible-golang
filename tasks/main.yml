@@ -1,13 +1,9 @@
 ---
 
-- include: "prerequisites.yml"
-  tags:
-    - "prerequisites"
-
-- include: "install.yml"
+- import_tasks: "install.yml"
   tags:
     - "install"
 
-- include: "configure.yml"
+- import_tasks: "configure.yml"
   tags:
     - "configure"

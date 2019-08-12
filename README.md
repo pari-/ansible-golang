@@ -40,19 +40,7 @@ Ansible version compatibility: [Dockerfile](https://github.com/pari-/docker-debi
 
 ## Defaults
 
-Available variables are listed below, along with default values (see defaults/main.yml). They're generally prefixed with `golang_` (which I deliberately leave out here for better formatting).
-
-variable | default | notes
--------- | ------- | -----
-`environment_file` | `/etc/profile.d/golang.sh` | `Absolute path where $GOROOT/$PATH exports are stored`
-`go_version` | `1.10.3` | `The version of the Go Programming Language that is going to be installed`
-`gopath` | `/opt/go` | `The $GOPATH lists places to look for Go code.`
-`supported_distro_list` | `['stretch']` | `A list of distribution releases this role supports`
-`tarball_dest` | `/tmp` | `Destination where golang's tarball is stored`
-`tarball_name` | `go{{ golang_go_version }}.linux-amd64.tar.gz` | `Naming schema of golang's tarball`
-`test_directory` | `/tmp` | `The directory where tests will be temporary stored and run in (auto cleanup)`
-`unarchive_dest` | `/usr/local` | `Destination where golang will be installed to`
-`upstream_url` | `https://storage.googleapis.com/golang` | `The URL to where golang's tarballs can be retrieved from`
+Available role variables and their respective default values are to be found in: [defaults/main.yml](https://github.com/pari-/ansible-golang/blob/master/defaults/main.yml)
 
 ## Dependencies
 
